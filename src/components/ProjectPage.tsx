@@ -141,7 +141,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
             />
           ) : (
             <div className='min-h-screen pb-5'>
-              <div className='relative z-10 pt-24  xxs:px-6 xs:px-6 sm:px-0 xxs:pb-24 sm:pb-20 md:pb-6 lg:pb-0'>
+              <div className='relative z-10 pt-24  xxs:px-6 xs:px-6 sm:px-0 xxs:pb-6 sm:pb-20 md:pb-6 lg:pb-0'>
                 <TypewriterEffectSmooth words={words} />
               </div>
               <div className='h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-24'>
