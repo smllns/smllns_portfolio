@@ -125,7 +125,7 @@ export function Contacts() {
         <p className='text-[#3DFF67] xxs:pl-5  md:pl-16'>
           © {new Date().getFullYear()} All rights reserved by{' '}
           <a
-            href='https://www.linkedin.com/in/smllns/'
+            href='https://github.com/smllns'
             target='_blank'
             rel='noopener noreferrer'
             className='text-pink-500 no-underline font-normal transition-all duration-300 ease-in-out hover:font-bold'
