@@ -64,5 +64,5 @@ You can check out the live version of the portfolio deployed on Vercel:
 Feel free to reach out to me if you have any questions or opportunities!
 
 - **Email**: [marysmoly@gmail.com](mailto:marysmoly@gmail.com)
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/smllns/)
-- **GitHub**: [Your GitHub Profile](https://github.com/smllns)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/smllns/)
+- **GitHub**: [GitHub Profile](https://github.com/smllns)
