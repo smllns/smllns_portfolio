@@ -39,17 +39,21 @@ This portfolio serves as a platform to introduce myself and display three of my 
 
 Here are the three projects featured in the portfolio:
 
-![Portfolio Preview](./public/portfolioproj.png)
+![Portfolio Preview](./public/projects.png)
 
-1. **MinyForecast**: A user-friendly weather forecast application.
+1. **MoodFlow**: A user-friendly weather forecast application.
+
+   - [Live Demo](https://moodflow-by-smllns.vercel.app/)
+
+2. **MinyForecast**: A user-friendly weather forecast application.
 
    - [Live Demo](https://miny-forecast.netlify.app/)
 
-2. **CookLab**: A web application for discovering and sharing recipes.
+3. **CookLab**: A web application for discovering and sharing recipes.
 
    - [Live Demo](https://cook-lab.vercel.app/)
 
-3. **CanvasBoard**: An online collaborative canvas board for multiple users to cooperate in real-time.
+4. **CanvasBoard**: An online collaborative canvas board for multiple users to cooperate in real-time.
 
    - [Live Demo](https://canvasboard-by-smllns.vercel.app/)
 
