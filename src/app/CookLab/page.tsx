@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import ProjectPage from '@/components/ProjectPage';
+import generateTabContent from '@/components/ui/generateTabContent';
 
 const features = [
   {
@@ -118,6 +119,34 @@ const words = [
   { text: 'CookLab:', className: 'text-[#3DFF67]' },
 ];
 
+const tabs = [
+  {
+    title: 'Home',
+    value: 'Home',
+    content: generateTabContent('Home Tab', '/home.png'),
+  },
+  {
+    title: 'Recipes',
+    value: 'Recipes',
+    content: generateTabContent('Recipes Tab', '/recipes.png'),
+  },
+  {
+    title: 'Contact',
+    value: 'Contact',
+    content: generateTabContent('Contact Tab', '/contact.png'),
+  },
+  {
+    title: 'About us',
+    value: 'About us',
+    content: generateTabContent('About Us Tab', '/about.png'),
+  },
+  {
+    title: 'Recipe',
+    value: 'Recipe',
+    content: generateTabContent('Recipe Tab', '/recipe.png'),
+  },
+];
+
 const CookLabPage = () => {
   return (
     <ProjectPage
@@ -131,6 +160,7 @@ const CookLabPage = () => {
       technologies={technologies}
       cardImg='cooklab.png'
       cardName='CookLab'
+      tabs={tabs}
     />
   );
 };

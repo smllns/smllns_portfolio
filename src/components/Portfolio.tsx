@@ -22,6 +22,13 @@ const words = [
 
 const cards: Card[] = [
   {
+    name: 'MoodFlow',
+    description: 'Comprehensive mood tracker.',
+    title: 'Enjoy MoodFlow',
+    href: 'https://moodflow-by-smllns.vercel.app/',
+    img: 'MoodFlowStarterPage.png',
+  },
+  {
     name: 'MinyForecast',
     description: 'Simple and user-friendly weather forecast app.',
     title: 'Discover MinyForecast',
@@ -56,7 +63,7 @@ const CardContent = ({ card }: { card: Card }) => {
   return (
     <div onClick={handleCardClick}>
       <PinContainer key={card.name} title={card.title}>
-        <div className='flex flex-col xl:p-4 lg:p-2 tracking-tight text-slate-100/50 xxs:w-[13rem] xxs:h-[13rem]  sm:w-[16rem] sm:h-[16rem]  xl:w-[20rem] xl:h-[20rem] 2xl:w-[25rem] 2xl:h-[25rem]'>
+        <div className='flex flex-col xl:p-4 lg:p-2 tracking-tight text-slate-100/50 xxs:w-[13rem] xxs:h-[13rem]  sm:w-[16rem] sm:h-[16rem]  xl:w-[18rem] xl:h-[18rem] 2xl:w-[20rem] 2xl:h-[20rem]'>
           <h3 className='font-bold 2xl:text-2xl text-base text-slate-100'>
             {card.name}
           </h3>
@@ -104,7 +111,7 @@ export function Portfolio() {
           <Timeline data={timelineData} />
         </div>
         {/* larger screens */}
-        <div className='flex flex-row xxs:hidden   lg:flex xl:gap-4 2xl:gap-24'>
+        <div className='pt-5 grid xxs:hidden lg:grid  grid-cols-2 justify-items-center gap-y-12 xl:gap-y-8 2xl:gap-x-36 2xl:gap-y-36'>
           {cards.map((card) => (
             <CardContent key={card.name} card={card} />
           ))}

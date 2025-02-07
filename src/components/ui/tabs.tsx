@@ -40,8 +40,7 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          // Added flex-wrap for small screens and wrap handling
-          'flex flex-row flex-wrap sm:flex-nowrap xxs:pb-8 sm:pb-0 items-center justify-center [perspective:1000px] relative  no-visible-scrollbar max-w-full w-full',
+          'flex flex-row flex-wrap  xxs:pb-8 sm:pb-0 items-center justify-center [perspective:1000px] relative  no-visible-scrollbar max-w-full w-full',
           containerClassName
         )}
       >

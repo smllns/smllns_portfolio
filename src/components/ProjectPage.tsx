@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import ProjectNav from './ProjectNav';
 import ProjectHeader from './ProjectHeader';
 import ProjectLink from './ProjectLink';
@@ -24,21 +23,11 @@ const wordsTechno = [
   { text: 'main' },
   { text: 'technologies:', className: 'text-[#3DFF67]' },
 ];
-
-//tabs for cookLab project
-
-const generateTabContent = (title: string, img: string) => {
-  return (
-    <div className='w-full flex flex-col overflow-hidden relative rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-black'>
-      <p className='self-start pb-4 flex-shrink-0 text-base sm:text-xl md:text-2xl lg:text-4xl'>
-        {title}
-      </p>
-      <div className='w-full  flex justify-center items-center flex-grow'>
-        <PagesContent img={img} />
-      </div>
-    </div>
-  );
-};
+const words2 = [
+  { text: 'Themes' },
+  { text: 'of' },
+  { text: 'MoodFlow:', className: 'text-[#3DFF67]' },
+];
 
 interface Feature {
   title: string;
@@ -49,9 +38,15 @@ interface WordItem {
   text: string;
   className?: string;
 }
+interface Tab {
+  title: string;
+  value: string;
+  content: React.ReactNode;
+}
 
 interface ProjectPageProps {
   cooklab: boolean;
+  mood?: boolean;
   link: string;
   title: string;
   linkTitle: string;
@@ -59,6 +54,7 @@ interface ProjectPageProps {
   features: Feature[];
   technologies: Feature[];
   words: WordItem[];
+  tabs?: Tab[];
   imgOne?: string;
   imgTwo?: string;
   imgThree?: string;
@@ -70,6 +66,7 @@ interface ProjectPageProps {
 
 const ProjectPage: React.FC<ProjectPageProps> = ({
   cooklab,
+  mood,
   link,
   title,
   linkTitle,
@@ -79,40 +76,13 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
   technologies,
   cardImg,
   cardName,
+  tabs,
   imgOne = '',
   imgTwo = '',
   imgThree = '',
   imgFour = '',
   comparingTitle = '',
 }) => {
-  //tabs for cookLab project
-  const tabs = [
-    {
-      title: 'Home',
-      value: 'Home',
-      content: generateTabContent('Home Tab', '/home.png'),
-    },
-    {
-      title: 'Recipes',
-      value: 'Recipes',
-      content: generateTabContent('Recipes Tab', '/recipes.png'),
-    },
-    {
-      title: 'Contact',
-      value: 'Contact',
-      content: generateTabContent('Contact Tab', '/contact.png'),
-    },
-    {
-      title: 'About us',
-      value: 'About us',
-      content: generateTabContent('About Us Tab', '/about.png'),
-    },
-    {
-      title: 'Recipe',
-      value: 'Recipe',
-      content: generateTabContent('Recipe Tab', '/recipe.png'),
-    },
-  ];
   return (
     <LoadingWrapper>
       <div className=' bg-[#1b1b1b] relative '>
@@ -130,6 +100,16 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
             features={features}
             words={wordsFeatures}
           />
+          {mood && (
+            <Comparing
+              imgOne={imgOne}
+              imgTwo={imgTwo}
+              imgThree={imgThree}
+              imgFour={imgFour}
+              words={words2}
+              title='Theming'
+            />
+          )}
           {!cooklab ? (
             <Comparing
               imgOne={imgOne}
@@ -140,14 +120,17 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
               title={comparingTitle}
             />
           ) : (
-            <div className='min-h-screen pb-5'>
-              <div className='relative z-10 pt-24  xxs:px-6 xs:px-6 sm:px-0 xxs:pb-6 sm:pb-20 md:pb-6 lg:pb-0'>
-                <TypewriterEffectSmooth words={words} />
+            tabs &&
+            tabs.length > 0 && (
+              <div className='min-h-screen pb-5'>
+                <div className='relative z-10 pt-24 xxs:px-6 xs:px-6 sm:px-0 xxs:pb-6 sm:pb-20 md:pb-6 lg:pb-0'>
+                  <TypewriterEffectSmooth words={words} />
+                </div>
+                <div className='h-[20rem] md:h-[40rem] [perspective:1000px] flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-24'>
+                  <Tabs tabs={tabs} />
+                </div>
               </div>
-              <div className='h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-24'>
-                <Tabs tabs={tabs} />
-              </div>
-            </div>
+            )
           )}
           <Features
             title='Technologies'
@@ -159,22 +142,6 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
         <div className='absolute bottom-0 left-0 w-screen z-20 xxs:h-[60px] lg:h-[87px] bg-black flex items-center justify-left' />
       </div>
     </LoadingWrapper>
-  );
-};
-
-//content for cookLab project
-
-const PagesContent = ({ img }: { img: string }) => {
-  return (
-    <div className='relative w-full h-auto max-w-[90%] mx-auto'>
-      <Image
-        src={img}
-        alt='project page'
-        width={1000}
-        height={1000}
-        className='w-full  object-contain rounded-xl'
-      />
-    </div>
   );
 };
 
