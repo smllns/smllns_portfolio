@@ -1,6 +1,6 @@
-# My Portfolio
+# Portfolio Website
 
-Welcome to my portfolio! This project showcases my work, experience, and projects, all wrapped up in a sleek and modern design. The portfolio is built with **React (Next.js)** and **TypeScript** and includes interactive features powered by **Aceternity UI** and **Framer Motion**. It is deployed live on **Vercel**.
+Welcome to my portfolio website! This project showcases my work, experience, and projects, all wrapped up in a sleek and modern design. The portfolio is built with **React (Next.js)** and **TypeScript** and includes interactive features powered by **Aceternity UI** and **Framer Motion**. It is deployed live on **Vercel**.
 
 ![Portfolio Preview](./public/portfoliohead.png)
 
