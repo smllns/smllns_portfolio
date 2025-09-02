@@ -34,8 +34,8 @@ const Navbar = () => {
           <li key={item}>
             {item === 'CV' ? (
               <a
-                href='/cv.pdf'
-                download='cv.pdf'
+                href='/Mariia-Smolianskaia-cv.pdf'
+                download='Mariia-Smolianskaia-cv.pdf'
                 onClick={handleDownloadClick}
                 className='text-white hover:text-gray-200 transition md:text-base lg:text-lg xl:text-xl 2xl:text-3xl'
               >

@@ -16,8 +16,8 @@ const skillGroups = [
   ],
   [
     { name: 'Next.js', img: '/nextjs.svg' },
-    { name: 'Node.js', img: '/Nodeskill.svg' },
-    { name: 'Redux', img: '/redux.svg' },
+    { name: 'TypeScript', img: '/TypeScript.svg' },
+    { name: 'i18n', img: '/i18n.svg' },
   ],
 ];
 const skillGroup = [
@@ -28,8 +28,8 @@ const skillGroup = [
   { name: 'React', img: '/Reactskill.svg' },
   { name: 'TailwindCSS', img: '/tsilwind.svg' },
   { name: 'Next.js', img: '/nextjs.svg' },
-  { name: 'Node.js', img: '/Nodeskill.svg' },
-  { name: 'Redux', img: '/redux.svg' },
+  { name: 'i18n', img: '/i18n.svg' },
+  { name: 'TypeScript', img: '/TypeScript.svg' },
 ];
 
 const Skills = () => {

@@ -106,8 +106,8 @@ export function Contacts() {
           <Toaster toastOptions={{ style: { zIndex: 9999 } }} />
         </div>
         <a
-          href='/cv.pdf'
-          download='cv.pdf'
+          href='/Mariia-Smolianskaia-cv.pdf'
+          download='Mariia-Smolianskaia-cv.pdf'
           onClick={handleDownloadClick}
           className='flex items-center justify-between  px-4 py-2 xxs:w-[255px] xxs:h-[70px] xxs:text-xs   md:text-base sm:w-[400px] sm:h-[70px] md:w-[480px] md:h-[80px] lg:w-full xl:w-[1150px] 2xl:w-[1400px] lg:h-[68px] xl:h-[72px] 2xl:h-[80px]  rounded-md border border-[#3DFF67] bg-black text-white text-sm hover:shadow-[4px_4px_0px_0px_#3DFF67] transition duration-200'
         >

@@ -1,17 +1,56 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { PinContainer } from './ui/3d-pin';
-import { Timeline } from './ui/timeline';
-import { useRouter } from 'next/navigation';
+import React, { useEffect, useRef } from 'react';
 import SectionCaption from './SectionCaption';
+import Card from './ui/card-stack';
+import { useScroll } from 'framer-motion';
+import Lenis from 'lenis';
 
-interface Card {
-  name: string;
-  description: string;
-  title: string;
-  href: string;
-  img: string;
-}
+const sections = [
+  {
+    title: 'Lunera',
+    description:
+      'Full frontend development for Lunera’s website, creating an engaging, modern digital experience.',
+    shortDescription: 'Frontend work for a full-featured agency website.',
+    src: 'lunera.png',
+    color: '#001e79',
+    shadow:
+      'shadow-[0px_50px_37px_0px_rgba(94,0,255,0.3),0px_0px_40px_0px_rgba(156,39,176,0.1)]',
+    slug: 'Lunera',
+  },
+  {
+    title: 'Smllns Film Club',
+    description:
+      'Personal project showcasing a curated collection of films I love, with detailed descriptions and highlights.',
+    shortDescription: 'My personal film showcase project.',
+    src: 'smllnsfilmclub.png',
+    color: '#00666d',
+    shadow:
+      'shadow-[0px_50px_37px_0px_rgba(255,94,158,0.3),0px_0px_40px_0px_rgba(156,39,176,0.1)]',
+    slug: 'Films',
+  },
+  {
+    title: 'MoodFlow',
+    description:
+      'A comprehensive mood tracker with interactive charts and analytics to visualize daily emotions.',
+    shortDescription: 'Mood tracking app with rich data visualizations.',
+    src: 'moodauth.png',
+    color: '#452979',
+    shadow:
+      'shadow-[0px_50px_37px_0px_rgba(199,0,219,0.3),0px_0px_40px_0px_rgba(156,39,176,0.1)]',
+    slug: 'MoodFlow',
+  },
+  {
+    title: 'CanvasBoard',
+    description:
+      'Real-time collaborative online canvas where multiple users can draw and create together.',
+    shortDescription: 'Live collaborative online canvas board.',
+    src: 'small.png',
+    color: '#00533c',
+    shadow:
+      'shadow-[0px_50px_37px_0px_rgba(0,179,166,0.3),0px_0px_40px_0px_rgba(156,39,176,0.1)]',
+    slug: 'CanvasBoard',
+  },
+];
 
 const words = [
   { text: 'Here' },
@@ -20,102 +59,50 @@ const words = [
   { text: 'projects:', className: 'text-[#3DFF67]' },
 ];
 
-const cards: Card[] = [
-  {
-    name: 'MoodFlow',
-    description: 'Comprehensive mood tracker.',
-    title: 'Enjoy MoodFlow',
-    href: 'https://moodflow-by-smllns.vercel.app/',
-    img: 'MoodFlowStarterPage.png',
-  },
-  {
-    name: 'MinyForecast',
-    description: 'Simple and user-friendly weather forecast app.',
-    title: 'Discover MinyForecast',
-    href: 'https://miny-forecast.netlify.app/',
-    img: 'minyforecast.png',
-  },
-  {
-    name: 'CookLab',
-    description:
-      'Web application for discovering, sharing, and exploring recipes.',
-    title: 'Reveal CookLab',
-    href: 'https://cook-lab.vercel.app/',
-    img: 'cooklab.png',
-  },
-  {
-    name: 'CanvasBoard',
-    description:
-      'Online canvas board where multiple users can cooperate in real-time.',
-    title: 'Learn about CanvasBoard',
-    href: 'https://canvasboard-by-smllns.vercel.app/',
-    img: 'canvas.png',
-  },
-];
+const useLenisScroll = () => {
+  useEffect(() => {
+    const lenis = new Lenis();
 
-const CardContent = ({ card }: { card: Card }) => {
-  const router = useRouter();
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
 
-  const handleCardClick = () => {
-    router.push(`/${card.name}`);
-  };
+    requestAnimationFrame(raf);
 
-  return (
-    <div onClick={handleCardClick}>
-      <PinContainer key={card.name} title={card.title}>
-        <div className='flex flex-col xl:p-4 lg:p-2 tracking-tight text-slate-100/50 xxs:w-[13rem] xxs:h-[13rem]  sm:w-[16rem] sm:h-[16rem]  xl:w-[18rem] xl:h-[18rem] 2xl:w-[20rem] 2xl:h-[20rem]'>
-          <h3 className='font-bold 2xl:text-2xl text-base text-slate-100'>
-            {card.name}
-          </h3>
-          <div className='text-base font-normal mt-2'>
-            <span className='text-slate-500 2xl:text-xl'>
-              {card.description}
-            </span>
-          </div>
-          <div
-            className='flex flex-1 w-full rounded-lg mt-4'
-            style={{
-              backgroundImage: `url('${card.img}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-            }}
-          />
-        </div>
-      </PinContainer>
-    </div>
-  );
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 };
 
 export function Portfolio() {
-  const [mounted, setMounted] = useState(false);
+  const listsRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: listsRef,
+    offset: ['start start', 'end end'],
+  });
 
-  if (!mounted) return null;
-
-  const timelineData = cards.map((card) => ({
-    title: card.name,
-    content: <CardContent card={card} />,
-  }));
+  useLenisScroll();
 
   return (
     <div className='sm:px-16 xxs:px-1  flex flex-col min-h-screen max-w-screen-2xl mx-auto relative  '>
       <SectionCaption title='Portfolio' words={words} />
-      {/* Centered Flex Container for Cards */}
-      <div className='relative z-10 flex flex-1 justify-center items-center'>
-        {/* smaller screens */}
-        <div className=' xxs:flex  lg:hidden w-full  '>
-          <Timeline data={timelineData} />
-        </div>
-        {/* larger screens */}
-        <div className='pt-5 grid xxs:hidden lg:grid  grid-cols-2 justify-items-center gap-y-12 xl:gap-y-8 2xl:gap-x-36 2xl:gap-y-36'>
-          {cards.map((card) => (
-            <CardContent key={card.name} card={card} />
-          ))}
-        </div>
+      <div ref={listsRef}>
+        {sections.map((section, i) => {
+          const targetScale = 1 - (sections.length - i) * 0.05;
+          return (
+            <Card
+              key={`p_${i}`}
+              i={i}
+              {...section}
+              progress={scrollYProgress}
+              range={[i * 0.25, 1]}
+              targetScale={targetScale}
+            />
+          );
+        })}
       </div>
     </div>
   );
