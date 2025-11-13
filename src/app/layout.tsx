@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'smllns',
     description: 'smllns portfolio - React | Next.js | Tailwind CSS',
-    url: 'https://smllns-portfolio.vercel.app/',
+    url: 'https://smllns-portfolio-v2024.vercel.app/',
     siteName: 'smllns portfolio',
     images: [
       {
