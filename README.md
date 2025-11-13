@@ -61,7 +61,7 @@ Here are the four projects featured in the portfolio:
 
 You can check out the live version of the portfolio deployed on Vercel:
 
-[Live Demo on Vercel](https://smllns-portfolio.vercel.app/)
+[Live Demo on Vercel](https://smllns-portfolio-v2024.vercel.app/)
 
 ## Contact
 
